@@ -10,6 +10,8 @@
   export let theme: Theme = "light";
   export let language: Language = "en";
   export let config: ToolbarConfig = {};
+  export let logoIcon: string | undefined;
+  export let onFullscreen: (() => void) | undefined;
 
   const name = "fastboard-toolbar";
   const extra_height = (32 + 4 + 4) * 2;
@@ -31,6 +33,8 @@
   <div class="{name}-contents {theme}" style:height={scrollable ? computed_height + "px" : "auto"}>
     <Contents
       {app}
+      {logoIcon}
+      {onFullscreen}
       {theme}
       {language}
       {disabled}

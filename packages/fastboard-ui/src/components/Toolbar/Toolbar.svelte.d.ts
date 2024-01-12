@@ -7,6 +7,8 @@ export declare interface ToolbarProps {
   theme?: Theme;
   language?: Language;
   config?: ToolbarConfig;
+  logoIcon?: string;
+  onFullscreen?: () => void;
 }
 
 declare class Toolbar extends SvelteComponentTyped<ToolbarProps> {}

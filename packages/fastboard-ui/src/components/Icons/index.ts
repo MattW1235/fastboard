@@ -41,6 +41,7 @@ import WhiteboardAdd from "./WhiteboardAdd.svelte";
 import Play from "./Play.svelte";
 import Pause from "./Pause.svelte";
 import Loading from "./Loading.svelte";
+import Fullscreen from "./Fullscreen.svelte";
 
 const Icons = {
   Apps,
@@ -86,6 +87,7 @@ const Icons = {
   Play,
   Pause,
   Loading,
+  Fullscreen,
 };
 
 export default Icons;

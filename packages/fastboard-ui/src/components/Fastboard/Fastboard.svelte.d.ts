@@ -8,6 +8,8 @@ export declare interface FastboardProps {
   language?: Language;
   containerRef?: (container: HTMLDivElement | null) => void;
   config?: FastboardUIConfig;
+  logoIcon?: string;
+  onFullscreen?: () => void;
 }
 
 declare class Fastboard extends SvelteComponentTyped<FastboardProps> {}

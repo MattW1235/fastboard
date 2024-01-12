@@ -28,6 +28,8 @@
   export let computed_height = 0;
   export let scrollable = false;
   export let hide_apps = false;
+  export let logoIcon: string | null = null;
+  export let onFullscreen: (() => void) | undefined;
 
   const name = "fastboard-toolbar";
 
@@ -60,7 +62,7 @@
     last_shape = shape;
   }
 
-  $: max_scroll = scrollable ? $scroll_height + (32 + 8) * 2 - computed_height : 0;
+  $: max_scroll = scrollable ? $scroll_height + (32 + 8 + 32) * 2 - computed_height : 0;
 
   let top = writable(0);
 
@@ -98,12 +100,23 @@
   }
 </script>
 
+{#if logoIcon}
+  <Button {...btn_props}>
+    <img alt="logo" src={logoIcon} />
+  </Button>
+{/if}
 {#if scrollable}
   <Button class="scroll-up" {...btn_props} on:click={scroll_up}>
     <Icons.Up {theme} />
   </Button>
 {/if}
 <div class="{name}-scrollable" class:scrollable use:scrollHeight={scroll_height} use:scrollTop={top}>
+  <!-- <Icons.SelectorFilled {theme} /> -->
+  {#if onFullscreen}
+    <Button {...btn_props} on:click={onFullscreen}>
+      <Icons.Fullscreen {theme} />
+    </Button>
+  {/if}
   <Button class="clicker" {...btn_props} on:click={clicker} content={c.clicker}>
     {#if appliance === "clicker"}
       <Icons.ClickFilled {theme} active />

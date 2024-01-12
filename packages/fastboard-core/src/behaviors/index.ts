@@ -53,10 +53,10 @@ export const register = WindowManager.register.bind(WindowManager);
 
 declare let __NAME__: string, __VERSION__: string;
 
-export const version = __VERSION__;
+// export const version = __VERSION__;
 
-if (typeof window !== "undefined") {
-  let str = (window as { __netlessUA?: string }).__netlessUA || "";
-  str += ` ${__NAME__}@${version} `;
-  (window as { __netlessUA?: string }).__netlessUA = str;
-}
+// if (typeof window !== "undefined") {
+//   let str = (window as { __netlessUA?: string }).__netlessUA || "";
+//   str += ` ${__NAME__}@${version} `;
+//   (window as { __netlessUA?: string }).__netlessUA = str;
+// }

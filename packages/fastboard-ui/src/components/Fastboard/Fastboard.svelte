@@ -15,6 +15,8 @@
   export let language: Language = "en";
   export let containerRef: ((element: HTMLDivElement | null) => void) | undefined = undefined;
   export let config: FastboardUIConfig = {};
+  export let logoIcon: string | undefined;
+  export let onFullscreen: (() => void) | undefined;
 
   const name = "fastboard";
   const AppsShowToolbar = ["DocsViewer", "Slide"];
@@ -74,7 +76,7 @@
   <div class="{name}-view" bind:this={container} on:touchstart|capture={focus_me} />
   <div class="{name}-left" class:hidden={!(layout === "visible" || layout === "toolbar-only")}>
     {#if config.toolbar?.enable !== false}
-      <Toolbar {app} {theme} {language} config={config.toolbar} />
+      <Toolbar {logoIcon} {onFullscreen} {app} {theme} {language} config={config.toolbar} />
     {/if}
   </div>
   <div class="{name}-bottom-left" class:hidden={layout !== "visible"}>
